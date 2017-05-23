@@ -1,6 +1,7 @@
 package com.lefu.model.beans;
 
 /**
+ * 对外统一返回bean
  * Created by shuyan.qi on 2017/4/18.
  */
 public class ReturnBean<T> {
