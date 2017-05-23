@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lefu.service.dao.OperatorMapper" >
+  <resultMap id="BaseResultMap" type="com.lefu.model.entity.Operator" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="OPTIMISTIC" property="optimistic" jdbcType="INTEGER" />
+    <result column="USERNAME" property="username" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="MAX_ERROR_TIMES" property="maxErrorTimes" jdbcType="INTEGER" />
+    <result column="LAST_LOGIN_ERR_TIME" property="lastLoginErrTime" jdbcType="TIMESTAMP" />
+    <result column="MODIFY_PASSWD_CYCLE" property="modifyPasswdCycle" jdbcType="INTEGER" />
+    <result column="PASSWD_MODIFY_TIME" property="passwdModifyTime" jdbcType="TIMESTAMP" />
+    <result column="ALLOW_BEGIN_TIME" property="allowBeginTime" jdbcType="VARCHAR" />
+    <result column="ALLOW_END_TIME" property="allowEndTime" jdbcType="VARCHAR" />
+    <result column="OPERATOR_TYPE" property="operatorType" jdbcType="VARCHAR" />
+    <result column="REALNAME" property="realname" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="CREATE_OPERATOR" property="createOperator" jdbcType="VARCHAR" />
+    <result column="RELOGIN_FLAG" property="reloginFlag" jdbcType="VARCHAR" />
+    <result column="PASSWD_EXPIRE_TIME" property="passwdExpireTime" jdbcType="DATE" />
+    <result column="PASSWD_EFFECT_TIME" property="passwdEffectTime" jdbcType="DATE" />
+    <result column="TRY_TIMES" property="tryTimes" jdbcType="INTEGER" />
+    <result column="ORG_CODE" property="orgCode" jdbcType="VARCHAR" />
+    <result column="STAFF_NO" property="staffNo" jdbcType="VARCHAR" />
+    <result column="PHONE_NO" property="phoneNo" jdbcType="VARCHAR" />
+    <result column="CUSTOMER_NO" property="customerNo" jdbcType="VARCHAR" />
+    <result column="CUSTOMER_TEL" property="customerTel" jdbcType="VARCHAR" />
+    <result column="AGENT_NO" property="agentNo" jdbcType="VARCHAR" />
+    <result column="SECOND_AGENT_ID" property="secondAgentId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, OPTIMISTIC, USERNAME, STATUS, PASSWORD, MAX_ERROR_TIMES, LAST_LOGIN_ERR_TIME, 
+    MODIFY_PASSWD_CYCLE, PASSWD_MODIFY_TIME, ALLOW_BEGIN_TIME, ALLOW_END_TIME, OPERATOR_TYPE, 
+    REALNAME, CREATE_TIME, CREATE_OPERATOR, RELOGIN_FLAG, PASSWD_EXPIRE_TIME, PASSWD_EFFECT_TIME, 
+    TRY_TIMES, ORG_CODE, STAFF_NO, PHONE_NO, CUSTOMER_NO, CUSTOMER_TEL, AGENT_NO, SECOND_AGENT_ID
+  </sql>
+
+  <select id="checkLogin" resultMap="BaseResultMap">
+    SELECT  <include refid="Base_Column_List"/>
+    FROM  operator
+    WHERE  USERNAME = #{username,jdbcType=VARCHAR}
+    and  PASSWORD = #{password,jdbcType=VARCHAR}
+  </select>
+</mapper>

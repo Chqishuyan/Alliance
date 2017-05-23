@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lefu.service.dao.RecommenderMapper" >
+  <resultMap id="BaseResultMap" type="com.lefu.model.entity.Recommender" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="OPTIMISTIC" property="optimistic" jdbcType="INTEGER" />
+    <result column="RECOMMENDER_NO" property="recommenderNo" jdbcType="VARCHAR" />
+    <result column="RECOMMENDER_NAME" property="recommenderName" jdbcType="VARCHAR" />
+    <result column="ORGANIZATION_CODE" property="organizationCode" jdbcType="VARCHAR" />
+    <result column="RECEIVE_ADDRESS" property="receiveAddress" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="AUTH_TIME" property="authTime" jdbcType="TIMESTAMP" />
+    <result column="AUDIT_USER" property="auditUser" jdbcType="VARCHAR" />
+    <result column="RECOMMENDER_FLAG" property="recommenderFlag" jdbcType="TINYINT" />
+    <result column="PHONE_NO" property="phoneNo" jdbcType="VARCHAR" />
+    <result column="AGENT_NO" property="agentNo" jdbcType="VARCHAR" />
+    <result column="IDENTITY_NO" property="identityNo" jdbcType="VARCHAR" />
+    <result column="QRCODE_PATH" property="qrcodePath" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+
+    ID, OPTIMISTIC, RECOMMENDER_NO, RECOMMENDER_NAME, ORGANIZATION_CODE, RECEIVE_ADDRESS, 
+    STATUS, CREATE_TIME, AUTH_TIME, AUDIT_USER, RECOMMENDER_FLAG, PHONE_NO, AGENT_NO, 
+    IDENTITY_NO, QRCODE_PATH
+  </sql>
+
+  <select id="findRecm" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"/>
+    FROM  recommender
+    WHERE RECOMMENDER_NO = #{recommenderNo,jdbcType=VARCHAR}
+  </select>
+</mapper>
