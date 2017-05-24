@@ -4,16 +4,11 @@ import com.lefu.model.entity.Operator;
 import com.lefu.model.utils.DigestUtil;
 import com.lefu.service.dao.OperatorMapper;
 import com.lefu.service.service.OperatorService;
-import com.sun.org.apache.xml.internal.security.algorithms.JCEMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import sun.security.provider.MD5;
 
 import javax.annotation.Resource;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 

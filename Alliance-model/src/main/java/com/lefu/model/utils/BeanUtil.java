@@ -59,7 +59,5 @@ public class BeanUtil {
         Map<String ,Object> map = new HashMap<>();
         map.put("name","小明");
         map.put("age",1);
-
-        BeanUtil.map2Bean(map,Person.class);
     }
 }
