@@ -1,10 +1,12 @@
 package com.lefu.service.dubbo;
 
 import com.lefu.inner.handler.RecommenderHandler;
+import com.lefu.model.bean.ReturnBean;
 import com.lefu.service.service.RecommenderService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.Map;
 
 /**
  * Created by shuyan.qi on 2017/4/18.

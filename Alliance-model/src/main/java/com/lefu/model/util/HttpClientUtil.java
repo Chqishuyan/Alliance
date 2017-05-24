@@ -1,4 +1,4 @@
-package com.lefu.model.utils;
+package com.lefu.model.util;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

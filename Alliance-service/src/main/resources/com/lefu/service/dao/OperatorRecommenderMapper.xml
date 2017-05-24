@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lefu.service.dao.OperatorRecommenderMapper" >
+  <resultMap id="BaseResultMap" type="com.lefu.model.entity.OperatorRecommender" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="RECOMMENDER_NO" property="recommenderNo" jdbcType="VARCHAR" />
+    <result column="OPERATOR_USERNAME" property="operatorUsername" jdbcType="VARCHAR" />
+    <result column="OPERATOR_FLAG" property="operatorFlag" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="OPTIMISTIC" property="optimistic" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, RECOMMENDER_NO, OPERATOR_USERNAME, OPERATOR_FLAG, STATUS, OPTIMISTIC
+  </sql>
+
+  <select id="findByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List"/>
+    FROM operator_recommender
+    WHERE  1=1
+    <if test="username != null and username != ''">
+      AND OPERATOR_USERNAME = #{username,jdbcType=VARCHAR}
+    </if>
+  </select>
+
+</mapper>

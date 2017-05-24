@@ -1,4 +1,4 @@
-package com.lefu.service.utils;
+package com.lefu.service.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +13,7 @@ import java.util.Map;
  * Created by shuyan.qi on 2017/4/27.
  */
 public class RedisUtil {
+
     private static Logger logger = LoggerFactory.getLogger(RedisUtil.class);
     @Resource
     private static JedisPool jedisPool;
@@ -22,7 +23,7 @@ public class RedisUtil {
      * @param value      值
      * @param expireTime 过期时间 不设置传null
      */
-    private static void set(String key, String value, Integer expireTime) {
+    public static void set(String key, String value, Integer expireTime) {
         Jedis jedis = jedisPool.getResource();
         try {
             jedis.setex(key, expireTime == null ? 0 : expireTime, value);
@@ -38,7 +39,7 @@ public class RedisUtil {
      * @param key 键
      * @return
      */
-    private static String get(String key) {
+    public static String get(String key) {
         Jedis jedis = jedisPool.getResource();
         String value = null;
         try {
@@ -57,7 +58,7 @@ public class RedisUtil {
      * @param key 键
      * @param map 值
      */
-    private static void hmSet(String key, Map<String,String> map){
+    public static void hmSet(String key, Map<String,String> map){
         Jedis jedis = jedisPool.getResource();
         try {
             jedis.hmset(key,map);
@@ -75,11 +76,11 @@ public class RedisUtil {
      * @param feilds map中的属性key列表
      * @return
      */
-    private static List<String> hmGet(String key,String... feilds) {
+    public static List<String> hmGet(String key,String... feilds) {
         Jedis jedis = jedisPool.getResource();
         List<String> lists = null;
         try {
-             lists = jedis.hmget(key, feilds);
+            lists = jedis.hmget(key, feilds);
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("Redis hmget List<String> 操作 异常 exception：{}", e);
@@ -94,7 +95,7 @@ public class RedisUtil {
      * @param key 键
      * @param map 值
      */
-    private static void hmSet(byte[] key, Map<byte[],byte[]> map){
+    public static void hmSet(byte[] key, Map<byte[],byte[]> map){
         Jedis jedis = jedisPool.getResource();
         try {
             jedis.hmset(key,map);
@@ -112,7 +113,7 @@ public class RedisUtil {
      * @param bytes map中的属性key列表
      * @return
      */
-    private static List<byte[]> hmGet(byte[] key,byte[]... bytes) {
+    public static List<byte[]> hmGet(byte[] key,byte[]... bytes) {
         Jedis jedis = jedisPool.getResource();
         List<byte[]> lists = null;
         try {
@@ -132,7 +133,7 @@ public class RedisUtil {
      * @param feild map中的属性key
      * @param value  map中的value
      */
-    private static void hSet(String key,String feild,String value){
+    public static void hSet(String key,String feild,String value){
         Jedis jedis = jedisPool.getResource();
         try {
             jedis.hset(key, feild, value);
@@ -150,7 +151,7 @@ public class RedisUtil {
      * @param feild map中的属性key
      * @return
      */
-    private static String hGet(String key,String feild){
+    public static String hGet(String key,String feild){
         Jedis jedis = jedisPool.getResource();
         String value = null;
         try {
@@ -170,7 +171,7 @@ public class RedisUtil {
      * @param feild map中的属性key
      * @param value  map中的value
      */
-    private static void hSet(byte[] key,byte[] feild,byte[] value){
+    public static void hSet(byte[] key,byte[] feild,byte[] value){
         Jedis jedis = jedisPool.getResource();
         try {
             jedis.hset(key, feild, value);
@@ -188,7 +189,7 @@ public class RedisUtil {
      * @param feild map中的属性key
      * @return
      */
-    private static byte[] hGet(byte[] key,byte[] feild){
+    public static byte[] hGet(byte[] key,byte[] feild){
         Jedis jedis = jedisPool.getResource();
         byte[] value = null;
         try {
@@ -207,7 +208,4 @@ public class RedisUtil {
             jedis.close();
         }
     }
-
-
-
 }

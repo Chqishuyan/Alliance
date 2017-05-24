@@ -59,4 +59,10 @@
         <property name="maxInMemorySize" value="40960" />
     </bean>
 
+
+    <mvc:interceptors>
+        <!-- 直接定义在interceptors下的拦截器会拦截所有请求 -->
+        <bean class="com.lefu.web.interceptor.LoginInterceptor"/>
+    </mvc:interceptors>
+
 </beans>

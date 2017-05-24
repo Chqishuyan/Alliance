@@ -1,9 +1,11 @@
 package com.lefu.service.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.lefu.model.beans.ReturnBean;
-import com.lefu.model.beans.ReturnCode;
+import com.lefu.model.bean.ReturnBean;
+import com.lefu.model.constant.ReturnCode;
+import com.lefu.model.entity.Operator;
 import com.lefu.model.entity.Recommender;
+import com.lefu.service.dao.OperatorMapper;
 import com.lefu.service.dao.RecommenderMapper;
 import com.lefu.service.service.RecommenderService;
 import org.apache.commons.lang3.StringUtils;
@@ -12,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Map;
 
 /**
  * Created by shuyan.qi on 2017/4/18.
@@ -22,6 +25,9 @@ public class RecommenderServiceImpl implements RecommenderService {
 
     @Resource
     private RecommenderMapper recommenderMapper;
+
+    @Resource
+    private OperatorMapper operatorMapper;
 
     /**
      * 查询我的信息

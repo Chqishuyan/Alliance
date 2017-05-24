@@ -1,4 +1,4 @@
-package com.lefu.model.beans;
+package com.lefu.model.bean;
 
 /**
  * 对外统一返回bean

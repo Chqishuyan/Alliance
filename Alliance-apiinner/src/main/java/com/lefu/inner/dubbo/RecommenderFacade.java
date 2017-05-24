@@ -1,5 +1,9 @@
 package com.lefu.inner.dubbo;
 
+import com.lefu.model.bean.ReturnBean;
+
+import java.util.Map;
+
 /**
  * Created by shuyan.qi on 2017/4/18.
  */

@@ -17,5 +17,6 @@
     <mvc:annotation-driven/>
 
     <import resource="spring-dubbo.xml"/>
+    <import resource="spring-redis.xml"/>
 
 </beans>

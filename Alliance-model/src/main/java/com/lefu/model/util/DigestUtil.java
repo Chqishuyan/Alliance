@@ -1,4 +1,4 @@
-package com.lefu.model.utils;
+package com.lefu.model.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
