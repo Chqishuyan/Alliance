@@ -10,7 +10,7 @@ import java.util.GregorianCalendar;
  * Created by shuyan.qi on 2017/5/17.
  */
 public class DateUtil {
-        static SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        private static SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         /**
          * 获取前一个月的第一天
          * @param date 格式如yyyy-MM-dd
@@ -50,7 +50,7 @@ public class DateUtil {
         public static String getFixedDays(String date, String pattern, Integer days)
         {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-            Date d = new Date();
+            Date d = null;
             try
             {
                 d = simpleDateFormat.parse(date);

@@ -55,9 +55,4 @@ public class BeanUtil {
         return bean;
     }
 
-    public static void main(String[] args) {
-        Map<String ,Object> map = new HashMap<>();
-        map.put("name","小明");
-        map.put("age",1);
-    }
 }
